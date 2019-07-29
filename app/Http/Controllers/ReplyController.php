@@ -11,6 +11,16 @@ use Symfony\Component\HttpFoundation\Response;
 class ReplyController extends Controller
 {
 
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('JWT', ['except' => ['index','show']]);
+    }
+
     public function index(Question $question)
     {
         //return Reply::latest()->where('question_id',$question->id)->get();
