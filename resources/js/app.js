@@ -40,9 +40,14 @@ Vue.component('app-footer', require('./components/shared/Footer.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ import User from './Helpers/User'
+ 
+ window.User = User 
+
  import router from './Router/router'
 
-const app = new Vue({
+ 
+ const app = new Vue({
     el: '#app',
     router
     //    vuetify: new Vuetify(),
