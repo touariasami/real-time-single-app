@@ -46,7 +46,8 @@ Vue.component('app-footer', require('./components/shared/Footer.vue').default);
 
  import router from './Router/router'
 
- 
+window.EventBus = new Vue()
+
  const app = new Vue({
     el: '#app',
     router

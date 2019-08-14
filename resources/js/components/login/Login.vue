@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="row m-5">
-            <div class="col-md-8 offset-2">
+            <div class="col-md-6 offset-md-3">
                 <form @submit.prevent="login">
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -13,7 +13,9 @@
                         <input type="password" class="form-control" id="password" v-model="form.password">
                     </div>
                     
-                    <button style="margin-top:20px" class="btn btn-outline-success form-control">Login</button>
+                    <input style="margin-top:20px" type="submit" class="btn btn-outline-success " value="Login">
+                    <button style="margin-top:20px" @click="signup" class="btn btn-success ">Sign Up</button>
+
                 </form>
             </div>
         </div>
@@ -32,10 +34,18 @@ export default {
             }
         }
     },
-
+    created(){
+        if( User.loggedIn()){
+            this.$router.push({ name: 'forum'})
+        }
+    },
     methods:{
         login(){
             User.login(this.form)
+        },
+
+        signup(){
+            this.$router.push('/signup')
         }
     }
 }
