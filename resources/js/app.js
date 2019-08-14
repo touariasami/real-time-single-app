@@ -29,6 +29,8 @@ window.Vue = require('vue');
 
 
 Vue.component('app-home', require('./components/AppHome.vue').default);
+Vue.component('app-navbar', require('./components/shared/Navbar.vue').default);
+Vue.component('app-footer', require('./components/shared/Footer.vue').default);
 
 
 

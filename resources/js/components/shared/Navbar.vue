@@ -10,20 +10,26 @@
             <ul class="navbar-nav mr-auto "></ul>
 
             <ul class="navbar-nav ">
+                <router-link :to="{ name: 'home'}"  active-class="active" exact tag="li"><a class="nav-link">Forum</a></router-link>
+                <router-link :to="{ name: 'home'}" active-class="active" exact tag="li"><a class="nav-link">Ask Question</a></router-link>
+                <router-link :to="{ name: 'home'}" active-class="active" exact tag="li"><a class="nav-link">Category</a></router-link>
+                <router-link :to="{ name: 'login'}" active-class="active" tag="li"><a class="nav-link">Login</a></router-link>
+                <!--
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Forum <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ask Question</a>
+                    <a class="nav-link" href="#"></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Category</a>
+                    <a class="nav-link" href="#"></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="#"></a>
                 </li>
+                -->
                 <!--
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

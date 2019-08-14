@@ -1,8 +1,9 @@
 <template>
-        <div>
+        <div class="container">
             <app-navbar></app-navbar>
 
-            <h1>Home</h1>
+            <router-view></router-view>
+
 
             <app-footer></app-footer>
         </div>
@@ -11,13 +12,11 @@
 
 <script>
 
-import Navbar from './shared/Navbar'
-import Footer from './shared/Footer'
+
 
 export default {
     components:{
-        'app-navbar': Navbar,
-        'app-footer': Footer
+     
 
     }
 }
