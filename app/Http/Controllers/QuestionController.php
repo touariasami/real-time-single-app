@@ -19,7 +19,6 @@ class QuestionController extends Controller
         $this->middleware('JWT', ['except' => ['index','show']]);
     }
 
-
     public function index()
     {
         return QuestionResource::collection(Question::latest()->get());
@@ -27,9 +26,13 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
-        // auth()->user()->question()->create($request->all());
-        Question::create($request->all());
-        return response('created', Response::HTTP_CREATED);
+        //Question::create($request->all());
+
+        //$request['slug'] = str_slug($request->title);
+
+        $question = auth()->user()->questions()->create($request->all());
+
+        return response($question->jsonSerialize(), Response::HTTP_CREATED);
     }
 
     public function show(Question $question)
@@ -37,13 +40,11 @@ class QuestionController extends Controller
         return new QuestionResource($question);
     }
 
-
     public function update(Request $request, Question $question)
     {
         $question->update($request->all());
         return response('Updated', Response::HTTP_ACCEPTED);
     }
-
 
     public function destroy(Question $question)
     {

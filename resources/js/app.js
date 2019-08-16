@@ -26,7 +26,13 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+import Vue from 'vue'
+import VueSimplemde from 'vue-simplemde'
+import md from 'marked'
 
+window.md = md
+
+Vue.component('vue-simplemde', VueSimplemde)
 
 Vue.component('app-home', require('./components/AppHome.vue').default);
 Vue.component('app-navbar', require('./components/shared/Navbar.vue').default);
