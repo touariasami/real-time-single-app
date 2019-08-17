@@ -29,6 +29,9 @@ export default {
 <style scoped>
 
     a {
+        /*
         color: #38c171;
+        */
+        color: teal
     }
 </style>

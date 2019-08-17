@@ -1,11 +1,11 @@
 <template>
     <div class="container my-5">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <question v-for="question in questions" :key="question.path" :question="question"></question>
             </div>
-            <div class="col-md-4">
-
+            <div class="col-md-3">
+                <app-sidebar></app-sidebar>
             </div>
         </div>
     </div>
@@ -14,19 +14,24 @@
 <script>
 
 import Question from './Question.vue'
+import AppSidebar from './AppSidebar.vue'
 
 export default {
     data(){
         return {
-            questions:[]
+            questions:[],
+            categories: [],
         }
     },
 
     created(){
+
+        axios.get('/api/categories')
+        .then(res => this.categories = res.data.data)
+        .catch(error => console.log(error.response.data))
+        
         axios.get('/api/questions')
-        .then(res => {
-            this.questions = res.data.data   
-        })
+        .then(res => this.questions = res.data.data )
         .catch(error => console.log(error.response.data))
         
     },
@@ -36,7 +41,8 @@ export default {
     },
 
     components:{ 
-        question:Question
+        question:Question,
+        AppSidebar,
     },
 }
 </script>

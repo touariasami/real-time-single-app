@@ -10,6 +10,7 @@ import SignUp from '../components/login/SignUp.vue'
 import Forum from '../components/forum/Forum.vue'
 import singleQuestion from '../components/forum/SingleQuestion.vue'
 import AskQuestion from '../components/forum/AskQuestion.vue'
+import CreateCategory from '../components/category/CreateCategory.vue'
 
 
 const routes = [
@@ -19,7 +20,8 @@ const routes = [
     {'path': '/signup', component: SignUp , name: 'home' },
     {'path': '/forum', component: Forum , name: 'forum' },
     {'path': '/questions/:slug', component: singleQuestion , name: 'singleQuestion'},
-    {'path': '/ask', component: AskQuestion , name: 'askQuestion'}
+    {'path': '/ask', component: AskQuestion , name: 'askQuestion'},
+    {'path': '/category/create', component: CreateCategory , name: 'createCategory'}
 ]
 
 const router = new VueRouter({

@@ -40,7 +40,7 @@ class CategoryController extends Controller
         $category->slug = str_slug($request->name);
         $category->save();
 
-        return response('Created', Response::HTTP_CREATED);
+        return response($category->jsonSerialize(), Response::HTTP_CREATED);
     }
 
     public function show(Category $category)
@@ -66,7 +66,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'slug' => str_slug($request->name)
         ]);
-        return response('Updated', Response::HTTP_ACCEPTED);
+        return response($category->jsonSerialize(), Response::HTTP_ACCEPTED);
     }
 
 

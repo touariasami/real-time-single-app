@@ -55,6 +55,10 @@ class User {
         }
     }
 
+    admin(){
+        return this.id() == 11
+    }
+
 }
 
 export default User = new User()
