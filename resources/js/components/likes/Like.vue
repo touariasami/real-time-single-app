@@ -27,6 +27,14 @@ export default {
             return this.liked ? 'fas fa-heart' : 'far fa-heart'
         }
     },
+    created(){
+        Echo.channel('likeChannel')
+        .listen('LikeEvent', (e) => {
+            if(this.content.id == e.id){
+                e.type == 1 ? this.count_likes++ : this.count_likes--
+            }
+        });
+    },
     methods:{
         likeIt(){ 
             

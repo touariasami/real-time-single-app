@@ -33,6 +33,22 @@ export default {
 
             
         })
+
+
+        Echo.private('App.User.' + User.id())
+            .notification((notification) => {
+                this.content.unshift(notification.reply)
+        });
+
+
+         Echo.channel('deleteReplyChannel')
+        .listen('DeleteReplyEvent', (e) => {
+            for(let index = 0 ; this.content.length ; index++){
+                if(this.content[index].id == e.id ){
+                    this.content.splice(index,1)
+                }
+            }
+        });
     }
 }
 </script>

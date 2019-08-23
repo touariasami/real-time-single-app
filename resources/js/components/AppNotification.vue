@@ -10,7 +10,7 @@
             -->
             <div v-if="unread_count > 0">
                 <router-link  v-for="item in unread" :to="item.path"    :key="item.id" >
-                <a @click="readIt(item)" class="dropdown-item">{{ item.replyBy }} a ajouter un commentaire</a>
+                <a @click="readIt(item)" class="dropdown-item">{{ item.question }}</a>
                 </router-link>
             </div>
             <div v-else>
@@ -48,6 +48,13 @@ export default {
                 this.unread_count = res.data.unread.length
             })
         }
+
+        Echo.private('App.User.' + User.id())
+            .notification((notification) => {
+                this.unread.unshift(notification)
+                this.unread_count++
+        });
+
     },
 
     methods:{
